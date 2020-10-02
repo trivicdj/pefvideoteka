@@ -12,4 +12,9 @@ class Role extends Model
     public function user() {
         return $this->belongsTo(User::class);
     }
+
+    public function scopeName($query, $name)
+    {
+        return $query->where('name', '=', $name);
+    }
 }

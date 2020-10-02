@@ -7,6 +7,9 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
+use App\Models\Role;
+use App\Constants\RoleConstants;
+
 class RoleSeeder extends Seeder
 {
     /**
@@ -16,10 +19,10 @@ class RoleSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->insert([
-            'name' => Str::random(10),
-            'email' => Str::random(10).'@gmail.com',
-            'password' => Hash::make('password'),
-        ]);
+        foreach (RoleConstants::ROLES as $role) {
+            Role::create([
+                'name' => $role
+            ]);
+        }
     }
 }
