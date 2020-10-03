@@ -8,6 +8,8 @@ use App\Models\Movie;
 class MoviesController extends Controller
 {
     public function index(){
-        return view('movies.index')->with('movies', []);
+        $movies = Movie::all();
+
+        return view('movies.index')->with('movies', $movies);
     }
 }

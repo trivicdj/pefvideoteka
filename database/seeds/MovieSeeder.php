@@ -20,6 +20,7 @@ class MovieSeeder extends Seeder
             Movie::create([
                 'name' => $movie['name'],
                 'description' => $movie['description'],
+                'photo' => $movie['photo'],
                 "genre_id" => Genre::where('name', $movie['genre'])->first()->id
             ]);
         }
