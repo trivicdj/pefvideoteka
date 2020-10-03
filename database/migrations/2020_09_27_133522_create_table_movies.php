@@ -20,6 +20,7 @@ class CreateTableMovies extends Migration
             $table->string('photo')->nullable();
             $table->unsignedBigInteger('genre_id');
             $table->foreign('genre_id')->references('id')->on('genres');
+            $table->integer('avg_rating')->default(0);
             $table->timestamps();
         });
     }

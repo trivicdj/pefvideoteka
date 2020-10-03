@@ -19,6 +19,7 @@ Route::get('/dashboard', 'DashboardController@index');
 
 Route::resource('posts', 'PostsController'); //TODO: Delete this when the implementation reference is no longer needed
 Route::resource('/movies', 'MoviesController');
+Route::put('/rate', 'MoviesController@rate');
 
 
 

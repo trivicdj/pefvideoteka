@@ -1,4 +1,39 @@
-.center-content {
+.content-flex {
     display: flex;
+}
+
+.content-center-horizontal {
     justify-content: center;
+}
+
+.content-center-vertical {
+    align-items: center;
+}
+
+.content-space-between {
+    justify-content: space-between;
+}
+
+.content-end {
+    justify-content: flex-end;
+}
+
+.padding-default {
+    padding: 1rem;
+}
+
+.w-100 {
+    width: 100% !important;
+}
+
+.w-50 {
+    width: 50% !important;
+}
+
+.w-25 {
+    width: 50% !important;
+}
+
+.margin-default {
+    margin: 1rem;
 }

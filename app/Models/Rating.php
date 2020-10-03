@@ -8,7 +8,11 @@ use User;
 
 class Rating extends Model
 {
-    protected $table = "movies";
+    protected $table = "ratings";
+
+    protected $fillable = [
+        'rating', 'movie_id', 'user_id'
+    ];
 
     public function movie()
     {
