@@ -12,4 +12,8 @@ class MoviesController extends Controller
 
         return view('movies.index')->with('movies', $movies);
     }
+
+    public function show(Movie $movie){
+        return view('movies.show')->with('movie', $movie);
+    }
 }
