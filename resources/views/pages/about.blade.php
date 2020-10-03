@@ -1,6 +1,5 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1><?php echo $title; ?></h1>
-    <p>This is the about page</p>
+    <h1>Made by Djordje Trivic</h1>
 @endsection

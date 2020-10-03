@@ -15,10 +15,10 @@ Auth::routes();
 
 Route::get('/', 'PagesController@index');
 Route::get('/about', 'PagesController@about');
-Route::get('/services', 'PagesController@services');
 Route::get('/dashboard', 'DashboardController@index');
 
-Route::resource('posts', 'PostsController');
+Route::resource('posts', 'PostsController'); //TODO: Delete this when the implementation reference is no longer needed
+Route::resource('/movies', 'MoviesController');
 
 
 
