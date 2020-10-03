@@ -4,10 +4,9 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
-use App\Models\Role;
-use App\Constants\RoleConstants;
+use App\Models\Genre;
 
-class RoleSeeder extends Seeder
+class GenreSeeder extends Seeder
 {
     /**
      * Run the database seeders.
@@ -16,9 +15,9 @@ class RoleSeeder extends Seeder
      */
     public function run()
     {
-        foreach (RoleConstants::ROLES as $role) {
-            Role::create([
-                'name' => $role
+        foreach (config('dummy-genres') as $genre) {
+            Genre::create([
+                'name' => $genre['name'],
             ]);
         }
     }

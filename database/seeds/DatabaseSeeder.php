@@ -2,6 +2,8 @@
 
 use Illuminate\Database\Seeder;
 use Database\Seeders\RoleSeeder;
+use Database\Seeders\GenreSeeder;
+use Database\Seeders\MovieSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,5 +15,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call(RoleSeeder::class);
+        $this->call(GenreSeeder::class);
+        $this->call(MovieSeeder::class);
     }
 }
