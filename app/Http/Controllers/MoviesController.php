@@ -37,6 +37,49 @@ class MoviesController extends Controller
         return redirect('/movies/' .  $validatedRequest['movie_id']);
     }
 
+      /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        return view('movies.create');
+    }
+
+      /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        $validatedRequest = $this->validate($request, [
+            'name' => 'required',
+            'description' => 'required',
+            'photo' => 'image|nullable|max:1999',
+            'genre' =>  'required|exists:genres,id',
+        ]);
+
+        if($request->hasFile('photo')){
+            $filenameWithExt = $validatedRequest->file('photo')->getClientOriginalName();
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            $extension = $validatedRequest->file('photo')->getClientOriginalExtension();
+            $fileNameToStore= $filename.'_'.time().'.'.$extension;
+            $path = $validatedRequest->file('photo')->storeAs('public/movie-photos', $fileNameToStore);
+        }
+
+        Movie::create([
+            'name' => $validatedRequest['name'],
+            'description' => $validatedRequest['description'],
+            'photo' => $validatedRequest['description'],
+            'genre_id' => $validatedRequest['genre'],
+        ]);
+
+        return redirect('/dashboard');
+    }
+
     /**
      * Remove the specified resource from storage.
      *

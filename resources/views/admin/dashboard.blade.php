@@ -8,7 +8,7 @@
                 <div class="panel-heading">Movies Admin Dashboard</div>
 
                 <div class="panel-body">
-                    {{-- <a href="/movies/create" class="btn btn-primary">Create Movie</a> --}}
+                    <a href="/movies/create" class="btn btn-primary">Create Movie</a>
                     <h3>Your Movies</h3>
                     @if(count($movies) > 0)
                         <table class="table table-striped">

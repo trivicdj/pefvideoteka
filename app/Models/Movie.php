@@ -10,6 +10,10 @@ class Movie extends Model
 {
     protected $table = "movies";
 
+    protected $fillable = [
+        'name', 'description', 'genre_id', 'photo'
+    ];
+
     public function genre()
     {
         return $this->belongsTo(Genre::class);
