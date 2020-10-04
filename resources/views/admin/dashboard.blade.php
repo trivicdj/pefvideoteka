@@ -15,6 +15,7 @@
                             <tr>
                                 <th>Name</th>
                                 <th>Description</th>
+                                <th>Rating</th>
                                 <th></th>
                                 <th></th>
                             </tr>
@@ -22,6 +23,7 @@
                                 <tr>
                                     <td>{{$movie->name}}</td>
                                     <td>{{$movie->description}}</td>
+                                    <td>{{$movie->avg_rating}}</td>
                                     <td><a href="/movies/{{$movie->id}}/edit" class="btn btn-default">Edit</a></td>
                                     <td>
                                         {!!Form::open(['action' => ['MoviesController@destroy', $movie->id], 'method' => 'POST', 'class' => 'pull-right'])!!}

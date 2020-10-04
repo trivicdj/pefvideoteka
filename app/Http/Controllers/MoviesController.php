@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use App\Models\Movie;
 use App\Models\Rating;
 
@@ -34,5 +35,22 @@ class MoviesController extends Controller
         $movie = Movie::find($validatedRequest['movie_id']);
 
         return redirect('/movies/' .  $validatedRequest['movie_id']);
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Movie $movie)
+    {
+        if($movie->photo){
+            Storage::delete('public/movie-photos/'. $movie->photo);
+        }
+        
+        $movie->delete();
+
+        return redirect('/dashboard');
     }
 }
