@@ -8,21 +8,23 @@
                 <div class="panel-heading">Movies Admin Dashboard</div>
 
                 <div class="panel-body">
-                    <a href="/posts/create" class="btn btn-primary">Create Post</a>
+                    {{-- <a href="/movies/create" class="btn btn-primary">Create Movie</a> --}}
                     <h3>Your Movies</h3>
-                    @if(count($posts) > 0)
+                    @if(count($movies) > 0)
                         <table class="table table-striped">
                             <tr>
-                                <th>Title</th>
+                                <th>Name</th>
+                                <th>Description</th>
                                 <th></th>
                                 <th></th>
                             </tr>
-                            @foreach($posts as $post)
+                            @foreach($movies as $movie)
                                 <tr>
-                                    <td>{{$post->title}}</td>
-                                    <td><a href="/posts/{{$post->id}}/edit" class="btn btn-default">Edit</a></td>
+                                    <td>{{$movie->name}}</td>
+                                    <td>{{$movie->description}}</td>
+                                    <td><a href="/movies/{{$movie->id}}/edit" class="btn btn-default">Edit</a></td>
                                     <td>
-                                        {!!Form::open(['action' => ['PostsController@destroy', $post->id], 'method' => 'POST', 'class' => 'pull-right'])!!}
+                                        {!!Form::open(['action' => ['MoviesController@destroy', $movie->id], 'method' => 'POST', 'class' => 'pull-right'])!!}
                                             {{Form::hidden('_method', 'DELETE')}}
                                             {{Form::submit('Delete', ['class' => 'btn btn-danger'])}}
                                         {!!Form::close()!!}
@@ -31,7 +33,7 @@
                             @endforeach
                         </table>
                     @else
-                        <p>You have no posts</p>
+                        <p>You have no movies</p>
                     @endif
                 </div>
             </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Movie;
 
 class DashboardController extends Controller
 {
@@ -14,7 +15,7 @@ class DashboardController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('is-admin');
     }
 
     /**
@@ -24,8 +25,6 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $user_id = auth()->user()->id;
-        $user = User::find($user_id);
-        return view('admin.dashboard')->with('posts', $user->posts);
+        return view('admin.dashboard')->with('movies', Movie::all());
     }
 }

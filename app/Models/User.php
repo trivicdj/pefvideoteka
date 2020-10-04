@@ -4,7 +4,8 @@ namespace App\Models;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Role;
+use App\Models\Role;
+use App\Constants\RoleConstants;
 
 class User extends Authenticatable
 {
@@ -33,6 +34,10 @@ class User extends Authenticatable
     }
 
     public function role(){
-        return $this->hasOne(Role::class);
+        return $this->belongsTo(Role::class);
+    }
+
+    public function isAdmin() {
+        return $this->role->name === RoleConstants::ADMIN;
     }
 }
