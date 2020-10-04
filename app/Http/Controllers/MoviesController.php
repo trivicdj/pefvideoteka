@@ -47,6 +47,17 @@ class MoviesController extends Controller
         return view('movies.create');
     }
 
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Movie $movie)
+    {
+        return view('movies.edit')->with('movie', $movie);
+    }
+
       /**
      * Store a newly created resource in storage.
      *
