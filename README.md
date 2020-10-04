@@ -1,9 +1,8 @@
-# LSAPP - Laravel From Scratch App
+# PEF Movies - Laravel app for managing movies
 
-This is the source code for the "Laravel From Scratch" Youtube series by Traversy media. It is a website with a blog application. It also includes full authentication and file uploading.
+## Setup
 
-## Version
-1.0.0
-
-## Database
-The sql dump is in _SQL/lsapp.sql
+- Setup a web server or run development server with `php artisan serve`
+- Setup a database through a supported DBMS (Change ports if needed in .env)
+- Run `php artisan migrate:fresh --seed`
+- Setup an entry in `hosts` file: APP_URL 127.0.0.1 (default is pefvideoteka.local)
